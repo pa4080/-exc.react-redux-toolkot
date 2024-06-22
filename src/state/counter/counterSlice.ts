@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface CounterState {
   value: number;
@@ -17,7 +17,7 @@ const counterSlice = createSlice({
      * It looks a little bit confusing (here), but it doesn't mutate the state directly.
      *
      * The reducers also takes an action as an argument:
-     * > increment: (state, action) => {...}
+     * > increment: (state, action: PayloadAction<any>) => {...}
      */
     increment: (state) => {
       state.value += 1;
@@ -25,8 +25,17 @@ const counterSlice = createSlice({
     decrement: (state) => {
       state.value -= 1;
     },
+    /**
+     * The action.payload, could be any type. For example:
+     * > incrementByAmount: (state, action: PayloadAction<{ amount: number }>) => {
+     * >   state.value += action.payload.amount;
+     * > }
+     */
+    incrementByAmount: (state, action: PayloadAction<number>) => {
+      state.value += action.payload;
+    },
   },
 });
 
-export const { increment, decrement } = counterSlice.actions;
+export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 export default counterSlice.reducer;

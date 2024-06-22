@@ -2,11 +2,11 @@ import { useState } from "react";
 import reactLogo from "/react.svg";
 import viteLogo from "/vite.svg";
 import reduxLogo from "/redux.svg";
-import "./App.css";
+import "./App.scss";
+import Counter from "./Counter";
 
 function App() {
   const [showVideo, setShowVideo] = useState(false);
-  const [count, setCount] = useState(0);
 
   return (
     <>
@@ -21,13 +21,11 @@ function App() {
           <img src={reduxLogo} className="logo redux" alt="Redux logo" />
         </a>
       </div>
+
       <h1>Vite + React + ReduxToolkit</h1>
+
       <div className="card">
-        <div className="counter-container">
-          <button onClick={() => setCount((count) => count + 1)}>
-            count is {count}
-          </button>
-        </div>
+        <Counter />
 
         <p
           onClick={() => setShowVideo(!showVideo)}

@@ -49,7 +49,7 @@ h1 {
 
 .counter-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-bottom: 2em;
@@ -79,4 +79,17 @@ h1 {
 
 .tutorial-display:hover {
   filter: drop-shadow(0 0 1em 2em #646cff);
+}
+
+.button-container {
+  display: flex;
+  gap: 1em;
+
+  button {
+    background-color: #ddd;
+
+    &:active {
+      background-color: #ccc;
+    }
+  }
 }

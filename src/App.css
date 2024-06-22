@@ -72,3 +72,11 @@ h1 {
     height: 100%;
   }
 }
+
+.tutorial-display {
+  cursor: pointer;
+}
+
+.tutorial-display:hover {
+  filter: drop-shadow(0 0 1em 2em #646cff);
+}

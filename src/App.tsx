@@ -5,6 +5,7 @@ import reduxLogo from "/redux.svg";
 import "./App.css";
 
 function App() {
+  const [showVideo, setShowVideo] = useState(false);
   const [count, setCount] = useState(0);
 
   return (
@@ -28,7 +29,20 @@ function App() {
           </button>
         </div>
 
-        <div className="video-container">
+        <p
+          onClick={() => setShowVideo(!showVideo)}
+          className="tutorial-display"
+        >
+          Click to {showVideo ? "hide" : "display"} the tutorial on which th
+          current app is based on.
+        </p>
+
+        <div
+          className="video-container"
+          style={{
+            display: showVideo ? "block" : "none",
+          }}
+        >
           <iframe
             width="100%"
             height="100%"
@@ -39,9 +53,6 @@ function App() {
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
           ></iframe>
-        </div>
-        <div>
-          <p>Tutorial on which th current app is based on.</p>
         </div>
       </div>
     </>

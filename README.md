@@ -1,4 +1,4 @@
-# React + TypeScript + Vite + Redux Toolkit
+# Redux Toolkit with React: A Simple Exercise
 
 The [ReduxToolkit](https://redux-toolkit.js.org/) part is based on the tutorial ["Redux - Complete Tutorial (with Redux Toolkit)" by
 Cosden Solutions](https://youtu.be/5yEG6GhoJBs?si=fDYoCL9DQeE7cIIP).
@@ -18,7 +18,7 @@ See also:
 
 - [Redux DevTools Chrome Extension](https://chromewebstore.google.com/detail/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
 
----
+## React + TypeScript + Vite + Redux Toolkit
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -29,7 +29,7 @@ Currently, two official plugins are available:
 
 In addition in this boilerplate is added support for SASS and the current latest version of TypeScript - 5.5.2.
 
-## Expanding the ESLint configuration
+### Expanding the ESLint configuration
 
 If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 

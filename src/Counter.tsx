@@ -1,17 +1,18 @@
 import React, { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { RootState } from "./state/store";
+import { AppDispatch, RootState } from "./state/store";
 import {
   decrement,
   increment,
+  incrementAsync,
   incrementByAmount,
 } from "./state/counter/counterSlice";
 
 const Counter: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const count = useSelector((state: RootState) => state.counter.value);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   return (
     <div className="counter-container">
@@ -25,6 +26,9 @@ const Counter: React.FC = () => {
           <button onClick={() => dispatch(decrement())}>Decrement</button>
         </div>
         <div className="button-row">
+          <input id="amount" type="number" ref={inputRef} defaultValue={10} />
+        </div>
+        <div className="button-row">
           <button
             onClick={() =>
               dispatch(incrementByAmount(inputRef.current?.valueAsNumber || 0))
@@ -32,7 +36,13 @@ const Counter: React.FC = () => {
           >
             Increment by amount
           </button>
-          <input id="amount" type="number" ref={inputRef} defaultValue={10} />
+          <button
+            onClick={() =>
+              dispatch(incrementAsync(inputRef.current?.valueAsNumber || 0))
+            }
+          >
+            Increment by amount Async
+          </button>
         </div>
       </div>
     </div>

@@ -25,6 +25,9 @@ const counterSlice = createSlice({
     decrement: (state) => {
       state.value -= 1;
     },
+    setAmount: (state, action: PayloadAction<number>) => {
+      state.value = action.payload;
+    },
     /**
      * The action.payload, could be any type. For example:
      * > incrementByAmount: (state, action: PayloadAction<{ amount: number }>) => {
@@ -71,5 +74,6 @@ export const incrementAsync = createAsyncThunk(
   }
 );
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { increment, decrement, incrementByAmount, setAmount } =
+  counterSlice.actions;
 export default counterSlice.reducer;

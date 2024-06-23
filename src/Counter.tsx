@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { AppDispatch, RootState } from "./state/store";
@@ -7,12 +7,31 @@ import {
   increment,
   incrementAsync,
   incrementByAmount,
+  setAmount,
 } from "./state/counter/counterSlice";
 
 const Counter: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const count = useSelector((state: RootState) => state.counter.value);
   const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    const storedCount = Number(
+      JSON.parse(localStorage.getItem("count") || "0")
+    );
+
+    if (storedCount && !isNaN(storedCount) && count !== storedCount)
+      dispatch(setAmount(storedCount));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("count", JSON.stringify(count));
+  }, [count]);
+
+  useEffect(() => {
+    console.log(count);
+  });
 
   return (
     <div className="counter-container">
@@ -42,6 +61,14 @@ const Counter: React.FC = () => {
             }
           >
             Increment by amount Async
+          </button>
+        </div>
+        <div className="button-row">
+          <button
+            onClick={() => dispatch(setAmount(0))}
+            className="reset-button"
+          >
+            Reset the local storage count
           </button>
         </div>
       </div>

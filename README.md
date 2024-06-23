@@ -17,6 +17,7 @@ Key points:
 See also:
 
 - [Redux DevTools Chrome Extension](https://chromewebstore.google.com/detail/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
+- [Why I Moved **from React Redux to Zustand** and Why You Should Too! by CoderOne](https://www.youtube.com/watch?v=DK-S4ZcmDcE)
 
 ## React + TypeScript + Vite + Redux Toolkit
 
